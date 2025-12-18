@@ -1,0 +1,12 @@
+#root {
+  margin: 0 auto;
+  --nav-height: 72px;
+}
+
+body {
+  background-color: #f7fcf8;
+}
+
+section {
+  scroll-margin-top: var(--nav-height);
+}
