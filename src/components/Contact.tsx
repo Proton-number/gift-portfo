@@ -4,10 +4,52 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
+import emailjs from "@emailjs/browser";
+import { useState, useEffect } from "react";
+import { toast } from "sonner";
+import { appStore } from "@/store/appStore";
 
 export default function Contact() {
-  const sendMessageHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formattedDate, formattedTime, updateFormattedDate } = appStore();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    updateFormattedDate();
+    const timer = setInterval(updateFormattedDate, 1000);
+    return () => clearInterval(timer);
+  }, [updateFormattedDate]);
+
+  const sendMessageHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const templateParams = {
+        user_name: formData.name,
+        user_email: formData.email,
+        message: formData.message,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_SERVICE_KEY,
+        import.meta.env.VITE_TEMPLATE_KEY,
+        templateParams,
+        import.meta.env.VITE_PUBLIC_KEY
+      );
+
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -17,12 +59,12 @@ export default function Contact() {
           <span>Say Hello 👋🏼</span>
         </div>
 
-        <h2 className=" text-3xl sm:text-5xl md:text-7xl font-bold">
+        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
           Ready to start a{" "}
           <span className="text-orange-400">conversation?</span>
         </h2>
 
-        <p className="leading-tight text-gray-500 text-md sm:text-xl font-semibold">
+        <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
           Got a machine learning idea, a project worth collaborating on, or a
           concrete question you’re stuck on? Send it over.
         </p>
@@ -78,6 +120,16 @@ export default function Contact() {
               </div>
             </Card>
           </a>
+          <Card className=" p-4 mt-4 hover:bg-muted transition">
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Current Date & Time
+              </p>
+              <p className="font-medium">
+                {formattedDate}, {formattedTime}
+              </p>
+            </div>
+          </Card>
         </div>
 
         {/* Right column */}
@@ -92,6 +144,10 @@ export default function Contact() {
                   placeholder="Your name"
                   type="text"
                   aria-required="true"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                 />
               </div>
 
@@ -103,6 +159,10 @@ export default function Contact() {
                   placeholder="john@example.com"
                   type="email"
                   aria-required="true"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -115,6 +175,10 @@ export default function Contact() {
                 placeholder="What are you trying to build?"
                 rows={5}
                 aria-required="true"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
               />
             </div>
 
@@ -123,7 +187,7 @@ export default function Contact() {
               className=" w-full rounded-full px-6 py-3 text-base font-semibold bg-orange-500 text-white flex items-center  justify-center gap-2 transition hover:bg-orange-600 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 cursor-pointer"
               aria-label="Send contact message"
             >
-              Send message
+              {isLoading ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </Card>

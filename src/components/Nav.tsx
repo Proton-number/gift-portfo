@@ -28,7 +28,7 @@ function Nav({ heroRef, aboutRef, projectsRef, contactRef }: NavProps) {
         <Button
           variant="ghost"
           onClick={() => scrollTo(heroRef)}
-          className="flex items-center gap-3 font-semibold group hover:bg-orange-100 px-4 py-2 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2"
+          className="flex items-center gap-3 font-semibold group hover:bg-orange-100 px-4 py-2 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 cursor-pointer"
           aria-label="Navigate to home section"
         >
           <House

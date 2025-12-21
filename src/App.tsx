@@ -5,6 +5,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import { useRef } from "react";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -36,6 +37,7 @@ function App() {
           <Contact />
         </section>
       </div>
+      <Toaster position="top-center" />
     </>
   );
 }

@@ -1,10 +1,19 @@
-// import { create } from "zustand";
+import { create } from "zustand";
+import { format } from "date-fns";
 
-// interface yorestore {
-//   yourState: any;
-//   yourAction: (val: any) => void;
-// }
-// export const useyorestore = create<yorestore>((set) => ({
-//   yourState: "VALUE",
-//   yourAction: (val) => set((state) => ({ yourState: state.yourState })),
-// }));
+interface APPSTORE {
+  formattedDate: string;
+  formattedTime: string;
+  updateFormattedDate: () => void;
+}
+export const appStore = create<APPSTORE>((set) => ({
+  formattedDate: "",
+  formattedTime: "",
+  updateFormattedDate() {
+    const now = new Date();
+    set(() => ({
+      formattedDate: format(now, "EEEE, MMMM do"),
+      formattedTime: format(now, "h:mm a"),
+    }));
+  },
+}));

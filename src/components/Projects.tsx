@@ -42,10 +42,10 @@ export default function Projects() {
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-baseline">
         <div className="space-y-4">
-          <h2 className=" text-3xl sm:text-5xl md:text-7xl font-bold">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
             Featured Projects
           </h2>
-          <p className="leading-tight text-gray-500 text-md sm:text-xl font-semibold">
+          <p className=" text-gray-700 text-base sm:text-lg leading-relaxed">
             Innovative ML systems and web applications
           </p>
         </div>
