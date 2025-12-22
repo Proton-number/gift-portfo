@@ -56,7 +56,7 @@ export default function Hero({ projectsRef, contactRef }: HeroProps) {
 
           {/* Image */}
           <motion.img
-            src="/placeholder.webp"
+            src="/Gift.webp"
             alt="Portrait of Gift, Machine Learning Engineer"
             className="w-full max-w-xs sm:max-w-sm lg:max-w-md rounded-3xl rounded-tr-[20%] rounded-bl-[20%]"
             initial={{ opacity: 0, y: 30 }}
