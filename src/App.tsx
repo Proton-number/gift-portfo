@@ -20,7 +20,7 @@ function App() {
         projectsRef={projectsRef}
         contactRef={contactRef}
       />
-      <div className="max-w-8xl mx-auto px-6 md:px-12 w-full">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 w-full">
         <main>
           <section ref={heroRef} className="scroll-mt-20">
             <Hero projectsRef={projectsRef} contactRef={contactRef} />

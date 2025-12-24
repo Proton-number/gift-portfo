@@ -14,8 +14,8 @@ export default function Hero({ projectsRef, contactRef }: HeroProps) {
 
   return (
     <section className="min-h-screen flex items-center">
-      <div className=" mt-14 lg:mt-0 w-full mx-auto px-4 sm:px-6 lg:px-0">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between py-16">
+      <div className=" mt-14 lg:mt-8 w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between py-16 gap-5 lg:gap-0">
           {/* Text */}
           <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -34,7 +34,7 @@ export default function Hero({ projectsRef, contactRef }: HeroProps) {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Button
-                className="bg-[#ff8552] hover:bg-[#e66a35] rounded-full h-12 px-8 text-sm sm:text-base group transition-colors"
+                className="bg-[#76604C] hover:bg-[#6A5645] rounded-full h-12 px-8 text-sm sm:text-base group transition-colors"
                 onClick={() => scrollTo(projectsRef)}
                 aria-label="View my projects"
               >
@@ -45,7 +45,7 @@ export default function Hero({ projectsRef, contactRef }: HeroProps) {
               </Button>
 
               <Button
-                className="bg-white text-[#ff8552] border border-[#ff8552] hover:bg-orange-50 rounded-full h-12 px-8 text-sm sm:text-base transition-colors"
+                className="bg-white text-[#76604C] border border-[#76604C] hover:bg-[#76604C] hover:text-[#F6FBF7] rounded-full h-12 px-8 text-sm sm:text-base transition-all duration-200"
                 onClick={() => scrollTo(contactRef)}
                 aria-label="Navigate to contact section"
               >

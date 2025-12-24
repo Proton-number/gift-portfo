@@ -2,19 +2,22 @@ import { Wrench } from "lucide-react";
 
 function About() {
   return (
-    <section className=" mx-auto px-4 sm:px-6 lg:px-0 py-8 sm:py-16">
-      <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+    <section className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-0 py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 md:gap-16 items-end mx-auto">
         {/* Text */}
         <div className="w-full lg:w-1/2">
-          <div className="inline-block text-[#59d0c7] px-4 py-2 font-bold rounded-full bg-[#e9f6f0] text-sm mb-6">
+          <div
+            className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 font-bold rounded-full text-xs sm:text-sm mb-4 sm:mb-6
+              bg-[#76604C]/10 text-[#76604C]"
+          >
             About Me
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
-            Research in <span className="text-[#ff8552]">AI & Engineering</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-[#2D2C2F]">
+            Research in <span className="text-[#76604C]">AI & Engineering</span>
           </h2>
 
-          <p className="mt-6 max-w-2xl text-gray-700 text-base sm:text-lg leading-relaxed">
+          <p className="mt-4 sm:mt-5 md:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-[#2D2C2F]/80 leading-relaxed">
             I am an AI researcher and machine learning engineer with a
             background in Mechanical Engineering. My work sits at the
             intersection of artificial intelligence, engineering systems, and
@@ -23,7 +26,7 @@ function About() {
             and materials science problems.
           </p>
 
-          <p className="mt-6 max-w-2xl text-gray-700 text-base sm:text-lg leading-relaxed">
+          <p className="mt-4 sm:mt-5 md:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-[#2D2C2F]/80 leading-relaxed">
             My experience includes predictive modeling of material behavior,
             hybrid FEM–ML frameworks, data-driven process optimization, and
             computer vision for industrial monitoring. I am particularly drawn
@@ -33,30 +36,45 @@ function About() {
         </div>
 
         {/* Toolkit */}
-        <div className="w-full lg:w-1/2 max-w-2xl bg-white p-6 sm:p-8 shadow-xl rounded-2xl">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="p-3 bg-orange-100 rounded-full">
-              <Wrench className="h-6 w-6 text-orange-400" />
+        <div
+          className="w-full lg:w-3/5 max-w-2xl
+         bg-white
+         p-4 sm:p-6 md:p-8
+         rounded-xl sm:rounded-2xl
+         border border-[#76604C]/15
+         shadow-[0_10px_25px_rgba(0,0,0,0.05)] sm:shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
+        >
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="p-2 sm:p-3 rounded-full bg-[#76604C]/20">
+              <Wrench className="h-5 w-5 sm:h-6 sm:w-6 text-[#76604C]" />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#2D2C2F]">
               Technical Toolkit
             </h3>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-10">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10">
             {/* Core */}
             <div className="flex-1">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-2 h-2 bg-green-400 rounded-full" />
-                <p className="text-gray-400 text-sm font-bold">CORE & TOOLS</p>
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                <div className="w-2 h-2 bg-[#76604C] rounded-full" />
+                <p className="text-[#2D2C2F]/60 text-xs sm:text-sm font-bold tracking-wide">
+                  CORE & TOOLS
+                </p>
               </div>
 
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+              <ul
+                className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4"
+                role="list"
+              >
                 {["Python", "SQL", "PostgreSQL", "Excel", "Beautiful Soup"].map(
                   (tool) => (
                     <li
                       key={tool}
-                      className="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm text-center font-bold hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                      className="bg-[#2D2C2F]/5 text-[#2D2C2F]
+         px-3 sm:px-4 lg:px-1 py-1.5 sm:py-2 lg:py-3 rounded-full text-xs sm:text-sm lg:text-md text-center font-semibold
+         hover:bg-[#76604C]/25 hover:text-[#2D2C2F]
+         transition-colors"
                     >
                       {tool}
                     </li>
@@ -67,14 +85,17 @@ function About() {
 
             {/* ML */}
             <div className="flex-1">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-2 h-2 bg-orange-400 rounded-full" />
-                <p className="text-gray-400 text-sm font-bold">
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                <div className="w-2 h-2 bg-[#76604C] rounded-full" />
+                <p className="text-[#2D2C2F]/60 text-xs sm:text-sm font-bold tracking-wide">
                   MACHINE LEARNING
                 </p>
               </div>
 
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+              <ul
+                className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4"
+                role="list"
+              >
                 {[
                   "TensorFlow",
                   "PyTorch",
@@ -84,7 +105,10 @@ function About() {
                 ].map((tool) => (
                   <li
                     key={tool}
-                    className="bg-gray-100 text-gray-800 px-4 py-2 rounded-full text-sm text-center font-bold hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                    className="bg-[#2D2C2F]/5 text-[#2D2C2F]
+         px-3 sm:px-4 lg:px-1 py-1.5 sm:py-2 lg:py-3 rounded-full text-xs sm:text-sm lg:text-md text-center font-semibold
+         hover:bg-[#76604C]/25 hover:text-[#2D2C2F]
+         transition-colors"
                   >
                     {tool}
                   </li>

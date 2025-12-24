@@ -55,85 +55,29 @@ export default function Contact() {
   return (
     <div className="pt-20 space-y-6 mb-8">
       <div className="text-center space-y-4">
-        <div className="bg-orange-100 text-orange-400 font-bold inline-block p-2 rounded-full text-sm">
-          <span>Say Hello 👋🏼</span>
+        <div
+          className="inline-block p-2 rounded-full text-sm font-semibold
+                    bg-[#76604C]/15 text-[#76604C]"
+        >
+          Say Hello 👋🏼
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
-          Ready to start a{" "}
-          <span className="text-orange-400">conversation?</span>
+        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-[#2D2C2F]">
+          Ready to start a <span className="text-[#76604C]">conversation?</span>
         </h2>
 
-        <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+        <p className="text-[#2D2C2F]/70 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
           Got a machine learning idea, a project worth collaborating on, or a
           concrete question you’re stuck on? Send it over.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 ">
         {/* Left column */}
-        <div className="space-y-4">
-          <Card className="p-5">
-            <div className="flex items-start gap-4">
-              <div className="rounded-md bg-amber-50 p-2 text-orange-500">
-                <Mail aria-hidden />
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  Reach out for collaborations or freelance work
-                </p>
-                <a
-                  href="mailto:ukpowehgift@gmail.com"
-                  className="font-medium text-orange-400"
-                  aria-label="Send email to ukpowehgift@gmail.com"
-                >
-                  ukpowehgift@gmail.com
-                </a>
-              </div>
-            </div>
-          </Card>
-
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my GitHub profile"
-          >
-            <Card className="p-4 hover:bg-muted transition">
-              <div className="flex justify-between items-center">
-                <p className="font-medium">GitHub</p>
-                <ArrowUpRight aria-hidden="true" />
-              </div>
-            </Card>
-          </a>
-
-          <a
-            href="https://linkedin.com/in/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my LinkedIn profile"
-          >
-            <Card className="p-4 hover:bg-muted transition mt-4">
-              <div className="flex justify-between items-center">
-                <p className="font-medium">LinkedIn</p>
-                <ArrowUpRight aria-hidden="true" />
-              </div>
-            </Card>
-          </a>
-          <Card className=" p-4 mt-4 hover:bg-muted transition">
-            <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                Current Date & Time
-              </p>
-              <p className="font-medium">
-                {formattedDate}, {formattedTime}
-              </p>
-            </div>
-          </Card>
-        </div>
-
-        {/* Right column */}
-        <Card className="p-6">
+        <Card
+          className="p-6 border border-[#76604C]/15
+                shadow-[0_16px_32px_rgba(0,0,0,0.08)]"
+        >
           <form className="space-y-12" onSubmit={sendMessageHandler}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="space-y-2">
@@ -184,13 +128,87 @@ export default function Contact() {
 
             <Button
               type="submit"
-              className=" w-full rounded-full px-6 py-3 text-base font-semibold bg-orange-500 text-white flex items-center  justify-center gap-2 transition hover:bg-orange-600 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 cursor-pointer"
+              className="w-full rounded-full px-6 py-3 text-base font-semibold
+             bg-[#2D2C2F] text-white
+             hover:bg-[#76604C]
+             transition-colors
+             active:scale-[0.98]
+             focus-visible:outline-none
+             focus-visible:ring-2
+             focus-visible:ring-[#76604C]/50"
               aria-label="Send contact message"
             >
               {isLoading ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </Card>
+
+        {/* Right column */}
+        <div className="space-y-4">
+          <Card className="p-5 border border-[#76604C]/15 shadow-sm">
+            <div className="flex items-start gap-4">
+              <div className="rounded-md bg-[#76604C]/15 p-2 text-[#76604C]">
+                <Mail aria-hidden />
+              </div>
+              <div className="space-y-2">
+                <p className="text-sm text-[#2D2C2F]/60">
+                  Reach out for collaborations or freelance work
+                </p>
+                <a
+                  href="mailto:ukpowehgift@gmail.com"
+                  className="font-medium text-[#2D2C2F] hover:text-[#76604C] transition-colors"
+                >
+                  ukpowehgift@gmail.com
+                </a>
+              </div>
+            </div>
+          </Card>
+
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my GitHub profile"
+          >
+            <Card
+              className="p-4 border border-[#76604C]/10
+                hover:border-[#76604C]/25
+                hover:shadow-md transition"
+            >
+              <div className="flex justify-between items-center">
+                <p className="font-medium">GitHub</p>
+                <ArrowUpRight aria-hidden="true" />
+              </div>
+            </Card>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit my LinkedIn profile"
+          >
+            <Card
+              className="p-4 border border-[#76604C]/10
+                hover:border-[#76604C]/25
+                hover:shadow-md transition mt-4"
+            >
+              <div className="flex justify-between items-center">
+                <p className="font-medium">LinkedIn</p>
+                <ArrowUpRight aria-hidden="true" />
+              </div>
+            </Card>
+          </a>
+          {/* Date card */}
+          <Card className="p-4 border border-[#76604C]/10 shadow-sm mt-4">
+            <div className="space-y-4">
+              <p className="text-sm text-[#2D2C2F]/60">Current Date & Time</p>
+              <p className="font-medium text-[#2D2C2F]">
+                {formattedDate}, {formattedTime}
+              </p>
+            </div>
+          </Card>
+        </div>
       </div>
     </div>
   );

@@ -37,24 +37,27 @@ export default function Projects() {
 
   return (
     <div className="pt-20 sm:pt-24">
-      <div className="text-orange-500 p-3 font-bold rounded-full bg-orange-50 w-fit mb-6 text-sm">
-        <span>Portfolio</span>
+      <div className="p-3 font-semibold rounded-full bg-[#76604C]/15 text-[#76604C] w-fit mb-6 text-sm">
+        Portfolio
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-baseline">
         <div className="space-y-4">
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-[#2D2C2F]">
             Featured Projects
           </h2>
-          <p className=" text-gray-700 text-base sm:text-lg leading-relaxed">
+          <p className="text-[#2D2C2F]/70 text-base sm:text-lg leading-relaxed">
             Innovative ML systems and web applications
           </p>
         </div>
         <Button
-          className="flex items-center bg-white gap-2 p-3 sm:px-4 sm:py-2 rounded-full shadow-md cursor-pointer hover:bg-gray-100 transition-colors font-semibold mt-4 sm:mt-0 text-black"
+          className="flex items-center gap-2 px-4 py-2 rounded-full
+                 bg-[#2D2C2F] text-white
+                 hover:bg-[#76604C]
+                 transition-colors font-semibold mt-4 sm:mt-0"
           aria-label="View all projects on GitHub"
         >
-          <p>View Github</p>
-          <ArrowUpRight className="w-4 h-4 " aria-hidden="true" />
+          <span>View GitHub</span>
+          <ArrowUpRight className="w-4 h-4" />
         </Button>
       </div>
       {/* Projects grid will go here */}
@@ -62,7 +65,12 @@ export default function Projects() {
         {projects.map((project) => (
           <Card
             key={project.id}
-            className="p-2 sm:p-4 rounded-3xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+            className="p-3 sm:p-4 rounded-3xl
+                 bg-white
+                 border border-[#76604C]/10
+                 shadow-[0_16px_32px_rgba(0,0,0,0.08)]
+                 hover:shadow-[0_22px_44px_rgba(0,0,0,0.12)]
+                 transition-shadow cursor-pointer"
             tabIndex={0}
             role="article"
             aria-label={`${project.title} project`}
@@ -73,12 +81,20 @@ export default function Projects() {
                 alt={`${project.title} project screenshot showing ${project.altImage}`}
                 className="w-full h-full object-cover rounded-[1.5rem] hover:scale-105 transition-transform"
               />
-              <div className="absolute bottom-3 left-3 rounded-full bg-white backdrop-blur shadow-sm px-3 py-1 text-xs font-bold">
+              <div
+                className="absolute bottom-3 left-3 rounded-full
+                bg-white/90 backdrop-blur
+                border border-[#76604C]/20
+                px-3 py-1 text-xs font-semibold text-[#2D2C2F]"
+              >
                 {project.altImage}
               </div>
             </div>
-            <p className="text-xl font-bold text-gray-700">{project.title}</p>
-            <p className="leading-relaxed text-muted-foreground text-sm">
+            <p className="mt-4 text-xl font-bold text-[#2D2C2F]">
+              {project.title}
+            </p>
+
+            <p className="leading-relaxed text-[#2D2C2F]/70 text-sm mt-1">
               {project.description}
             </p>
 
@@ -88,23 +104,25 @@ export default function Projects() {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="View code"
-                  className="flex items-center gap-1 bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-full text-sm font-semibold transition-colors"
-                  aria-label={`View ${project.title} source code on GitHub`}
+                  className="flex items-center gap-1
+             bg-[#2D2C2F] hover:bg-[#76604C]
+             text-white px-3 py-2 rounded-full
+             text-sm font-semibold transition-colors"
                 >
                   GitHub
-                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <a
                   href={project.liveWebsiteLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="View live"
-                  className="flex items-center gap-1 bg-gray-200 hover:bg-gray-300 text-black px-3 py-2 rounded-full text-sm font-semibold transition-colors"
-                  aria-label={`View ${project.title} live demo`}
+                  className="flex items-center gap-1
+             bg-[#2D2C2F]/10 hover:bg-[#2D2C2F]/20
+             text-[#2D2C2F] px-3 py-2 rounded-full
+             text-sm font-semibold transition-colors"
                 >
                   Live
-                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
